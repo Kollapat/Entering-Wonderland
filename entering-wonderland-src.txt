@@ -1,0 +1,208 @@
+title Escaping Wonderland
+author Schwin, Daniel, Jeffrey
+
+========
+OBJECTS
+========
+
+townBackground 
+white brown
+11111
+01111
+11101
+11111
+10111
+
+prisonBackground
+brown black
+11111
+01111
+11101
+11111
+10111
+
+prisonWall
+gray white
+11111
+01111
+11101
+11111
+10111
+
+Guard
+yellow gray red orange
+.111.
+.333.
+11111
+.222.
+.1.1.
+
+guardArea
+black
+.....
+.....
+..0..
+.....
+.....
+
+crateTarget
+darkblue
+.....
+.000.
+.000.
+.000.
+.....
+
+townWall
+black darkbrown
+00010
+11111
+01000
+11111
+00010
+
+Player
+black orange white blue
+.000.
+.111.
+22222
+.333.
+.3.3.
+
+normalCrate
+orange
+00000
+0...0
+0...0
+0...0
+00000
+
+falseCrate
+brown
+00000
+0...0
+0...0
+0...0
+00000
+
+lockTarget
+lightgray
+.....
+.000.
+.000.
+.000.
+.....
+
+lockObject
+blue
+00000
+0...0
+0...0
+0...0
+00000
+
+falseTarget
+brown
+.....
+.....
+..0..
+.....
+.....
+
+
+=======
+LEGEND
+=======
+Background = townBackground or prisonBackground
+Wall = townWall or prisonWall
+Target = lockTarget or crateTarget or falseTarget
+Crate = normalCrate or lockObject or falseCrate
+
+
+. = townBackground
++ = prisonBackground
+/ = prisonWall
+# = townWall
+W = prisonWall
+P = Player
+G = Guard
+* = normalCrate
+@ = crateTarget
+L = lockObject
+O = lockTarget
+T = falseTarget
+F = falseCrate
+A = guardArea
+
+=======
+SOUNDS
+=======
+
+Crate move 36772507
+
+================
+COLLISIONLAYERS
+================
+
+Background
+Target, Guard, guardArea
+Player, Wall, Crate
+
+======
+RULES
+======
+
+[ > Player | Crate ] -> [ > Player | > Crate ]
+
+late [ Player guardArea] -> restart message The guard spots you! 
+
+
+==============
+WINCONDITIONS
+==============
+
+all Crate on Target
+all lockObject on Target
+
+=======
+LEVELS
+=======
+
+message You wake up in a middle age town. It seems like the town's name is Edington.
+message You see someone who looks like a town's guard...
+###g###
+###t###
+###.###
+###.###
+###f###
+###p###
+#######
+
+message The guard arrests you because of trespassing. He knocks you out... Then, you wake up and find yourself in a prison cell.
+message You try to crack the cell's lock... 
+///////
+///olp/
+//o+l+/
+///ol+/
+/o++l+/
+//o+l+/
+///////
+
+message You're trying to escape from prison...
+message Move crate into target to exit each room.
+///////
+/oo+++/
+////++/
+//+**+/
+//+*++/
+/o++p+/
+///////
+
+message Now try to avoid the guard...
+///////
+/o++*+/
+/ao+++/
+/ga/++/
+/aa+*+/
+/p++++/
+///////
