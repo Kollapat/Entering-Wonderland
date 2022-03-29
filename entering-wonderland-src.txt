@@ -166,12 +166,18 @@ brown green orange purple
 =======
 LEGEND
 =======
+Nonwhite = Black or Grey
+Nonblack = White or Grey
+
 Background = townBackground or prisonBackground or castleBackground
 Wall = townWall or prisonWall or castleWall
 Target = lockTarget or crateTarget or falseTarget
 Crate = normalCrate or lockObject or falseCrate
 Villager = villager1 or villager2 or villager3
 
+0 = Black
+1 = White
+2 = Grey
 . = townBackground
 + = prisonBackground
 - = castleBackground
@@ -179,16 +185,20 @@ Villager = villager1 or villager2 or villager3
 # = townWall
 \ = castleWall
 W = prisonWall
-P = Player 
+P = Player
+U = Player and Black
+Q = Player and White
 G = Guard
 * = normalCrate
 @ = crateTarget
-L = lockObject
-O = lockTarget
+L = lockObject and Black
+O = lockTarget and Black
+R = lockObject and White
+S = lockTarget and White
 T = falseTarget
 F = falseCrate
 A = guardArea
-V = villager1
+J = villager1
 B = villager2
 N = villager3
 
@@ -204,6 +214,7 @@ COLLISIONLAYERS
 ================
 
 Background
+Black, White, Grey
 Target, Guard, guardArea, Villager
 Player, Wall, Crate
 
@@ -212,6 +223,14 @@ RULES
 ======
 
 [ > Player | Crate ] -> [ > Player | > Crate ]
+
+[ >  Player Nonblack | lockObject Nonblack ] -> [  > Player Nonblack | > lockObject Nonblack ]  
+
+[ >  Player Black | lockObject Black ] -> [  > Player Black | > lockObject Black ]
+
+[ > Player White | Black ] -> CANCEL
+
+[ > Player Black | White ] -> CANCEL
 
 late [ Player guardArea ] -> restart message The guard spots you! 
 
@@ -244,11 +263,11 @@ message You see someone who looks like a town's guard...
 message The guard arrests you because of trespassing. He knocks you out... Then, you wake up and find yourself in a prison cell.
 message You try to crack the cell's lock... 
 ///////
-///olp/
-//o+l+/
-///ol+/
-/o++l+/
-//o+l+/
+///001/
+//0001/
+//sr21/
+/o00l2/
+//000q/
 ///////
 
 message You're trying to escape from prison...
@@ -263,17 +282,17 @@ message Move crate into target to exit each room.
 
 message Now try to avoid the guard...
 ///////
-/o++*+/
-/ao+++/
+/@++*+/
+/a++++/
 /ga/++/
-/aa+*+/
+/a+@*+/
 /p++++/
 ///////
 
 message Congrats, you have escape from prison
 message Now, let's talk to the villagers
 #######
-#v#b#n#
+#j#b#n#
 #.#.#t#
 #.#.#f#
 #.....#
@@ -303,9 +322,9 @@ message One more to go!
 
 message You try to crack the throne room's lock... 
 \\\\\\\
-\\\olp\
-\\o-l-\
-\\\ol-\
-\o--l-\
-\\o-l-\
+\\\srp\
+\\s1r-\
+\\\22-\
+\o00l-\
+\\o0l-\
 \\\\\\\
