@@ -4,6 +4,19 @@ author Schwin, Daniel, Jeffrey
 ========
 OBJECTS
 ========
+White
+White
+
+Black
+#202020
+
+Grey
+#505050 #a0a0a0
+01010
+10101
+01010
+10101
+01010
 
 townBackground 
 white brown
@@ -21,12 +34,28 @@ brown black
 11111
 10111
 
+castleBackground
+red yellow
+11111
+01111
+11101
+11111
+10111
+
 prisonWall
 gray white
 11111
 01111
 11101
 11111
+10111
+
+castleWall
+brown gray
+11101
+01111
+11101
+10111
 10111
 
 Guard
@@ -109,22 +138,48 @@ brown
 .....
 .....
 
+villager1
+brown green orange yellow
+.111.
+.333.
+31113
+.000.
+.2.2.
+
+villager2
+brown green orange blue
+.111.
+.333.
+31113
+.000.
+.2.2.
+
+villager3
+brown green orange purple
+.111.
+.333.
+31113
+.000.
+.2.2.
+
 
 =======
 LEGEND
 =======
-Background = townBackground or prisonBackground
-Wall = townWall or prisonWall
+Background = townBackground or prisonBackground or castleBackground
+Wall = townWall or prisonWall or castleWall
 Target = lockTarget or crateTarget or falseTarget
 Crate = normalCrate or lockObject or falseCrate
-
+Villager = villager1 or villager2 or villager3
 
 . = townBackground
 + = prisonBackground
+- = castleBackground
 / = prisonWall
 # = townWall
+\ = castleWall
 W = prisonWall
-P = Player
+P = Player 
 G = Guard
 * = normalCrate
 @ = crateTarget
@@ -133,6 +188,10 @@ O = lockTarget
 T = falseTarget
 F = falseCrate
 A = guardArea
+V = villager1
+B = villager2
+N = villager3
+
 
 =======
 SOUNDS
@@ -145,7 +204,7 @@ COLLISIONLAYERS
 ================
 
 Background
-Target, Guard, guardArea
+Target, Guard, guardArea, Villager
 Player, Wall, Crate
 
 ======
@@ -154,7 +213,11 @@ RULES
 
 [ > Player | Crate ] -> [ > Player | > Crate ]
 
-late [ Player guardArea] -> restart message The guard spots you! 
+late [ Player guardArea ] -> restart message The guard spots you! 
+
+late [ Player villager1 ] -> restart message Random dialogue #1
+
+late [ Player villager2 ] -> restart message Random dialogue #2
 
 
 ==============
@@ -206,3 +269,43 @@ message Now try to avoid the guard...
 /aa+*+/
 /p++++/
 ///////
+
+message Congrats, you have escape from prison
+message Now, let's talk to the villagers
+#######
+#v#b#n#
+#.#.#t#
+#.#.#f#
+#.....#
+#p....#
+#######
+
+message "I think the princess could open a portal to send you home", said the villager.
+message "Ok, this is risky. Just broke out of prison and now I’m breaking in to a castle?"
+message "But there's no other choice anyway, so let's do it!"
+message Move crates into targets to progress through the castle
+\\\\\\\
+\-\\ag\
+\-\\aa\
+\-\gap\
+\--a--\
+\@-*--\
+\\\\\\\
+
+message One more to go!
+\\\\\\\
+\-\\ag\
+\-\\aa\
+\-\gap\
+\--a--\
+\@-*--\
+\\\\\\\
+
+message You try to crack the throne room's lock... 
+\\\\\\\
+\\\olp\
+\\o-l-\
+\\\ol-\
+\o--l-\
+\\o-l-\
+\\\\\\\
