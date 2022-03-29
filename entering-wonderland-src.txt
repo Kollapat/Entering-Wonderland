@@ -263,11 +263,11 @@ message You see someone who looks like a town's guard...
 message The guard arrests you because of trespassing. He knocks you out... Then, you wake up and find yourself in a prison cell.
 message You try to crack the cell's lock... 
 ///////
-///001/
-//0001/
-//sr21/
-/o00l2/
-//000q/
+/osr11/
+/l0lo1/
+/00021/
+/00srq/
+/0sr11/
 ///////
 
 message You're trying to escape from prison...
@@ -275,17 +275,17 @@ message Move crate into target to exit each room.
 ///////
 /oo+++/
 ////++/
-//+**+/
+//+**//
 //+*++/
 /o++p+/
 ///////
 
-message Now try to avoid the guard...
+message Now try to do it while avoiding the guard...
 ///////
 /@++*+/
-/a++++/
+/aa+++/
 /ga/++/
-/a+@*+/
+/aa@*+/
 /p++++/
 ///////
 
@@ -293,8 +293,8 @@ message Congrats, you have escape from prison
 message Now, let's talk to the villagers
 #######
 #j#b#n#
-#.#.#t#
-#.#.#f#
+#....t#
+#....f#
 #.....#
 #p....#
 #######
@@ -313,18 +313,18 @@ message Move crates into targets to progress through the castle
 
 message One more to go!
 \\\\\\\
-\-\\ag\
-\-\\aa\
-\-\gap\
-\--a--\
-\@-*--\
+\@-aga\
+\---a-\
+\----p\
+\a--*-\
+\ga---\
 \\\\\\\
 
-message You try to crack the throne room's lock... 
+message You try to crack the princess' room door lock... 
 \\\\\\\
-\\\srp\
-\\s1r-\
-\\\22-\
-\o00l-\
-\\o0l-\
+\00or1\
+\0ls11\
+\0\\21\
+\00oLU\
+\oL000\
 \\\\\\\
