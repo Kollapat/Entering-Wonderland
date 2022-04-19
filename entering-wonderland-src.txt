@@ -1,5 +1,5 @@
 title Escaping Wonderland
-author Schwin, Daniel, Jeffrey
+author Schwin, Daniel, Jeffrey 
 
 ========
 OBJECTS
@@ -262,9 +262,9 @@ RULES
 
 late [ Player guardArea ] -> restart message The guard spots you! 
 
-late [ Player villager1 ] -> restart message Random dialogue #1
+late [ Player villager1 ] -> restart message "If you look back, you’ll soon be going that way", said the villager.
 
-late [ Player villager2 ] -> restart message Random dialogue #2
+late [ Player villager2 ] -> restart message "It is a good day to have a good day", said the villager.
 
 
 ==============
