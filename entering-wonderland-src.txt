@@ -21,7 +21,7 @@ Grey
 townBackground 
 white brown
 11111
-01111
+11111
 11101
 11111
 10111
@@ -29,34 +29,34 @@ white brown
 prisonBackground
 brown black
 11111
-01111
+11111
 11101
 11111
 10111
 
 castleBackground
-red yellow
+black darkbrown
 11111
-01111
+11111
 11101
 11111
 10111
 
 prisonWall
 gray white
-11111
-01111
+11011
+00000
 11101
-11111
-10111
+00000
+11011
 
 castleWall
-brown gray
+brown lightgray
+11011
+00000
 11101
-01111
-11101
-10111
-10111
+00000
+11011
 
 Guard
 yellow gray red orange
@@ -84,14 +84,14 @@ darkblue
 
 townWall
 black darkbrown
-00010
-11111
-01000
-11111
-00010
+11011
+00000
+11101
+00000
+11011
 
 Player
-black orange white blue
+black orange lightblue blue
 .000.
 .111.
 22222
@@ -114,8 +114,24 @@ brown
 0...0
 00000
 
+falseCrateCastle
+darkbrown
+00000
+0...0
+0...0
+0...0
+00000
+
+falseTargetCastle
+darkbrown
+.....
+.....
+..0..
+.....
+.....
+
 lockTarget
-lightgray
+gray
 .....
 .000.
 .000.
@@ -123,7 +139,7 @@ lightgray
 .....
 
 lockObject
-blue
+lightbrown
 00000
 0...0
 0...0
@@ -139,7 +155,7 @@ brown
 .....
 
 villager1
-brown green orange yellow
+black green darkbrown yellow
 .111.
 .333.
 31113
@@ -147,7 +163,7 @@ brown green orange yellow
 .2.2.
 
 villager2
-brown green orange blue
+black red darkbrown yellow
 .111.
 .333.
 31113
@@ -155,13 +171,20 @@ brown green orange blue
 .2.2.
 
 villager3
-brown green orange purple
+black blue darkbrown yellow
 .111.
 .333.
 31113
 .000.
 .2.2.
 
+princess
+darkred pink red yellow
+.111.
+.333.
+31113
+.000.
+.2.2.
 
 =======
 LEGEND
@@ -171,8 +194,8 @@ Nonblack = White or Grey
 
 Background = townBackground or prisonBackground or castleBackground
 Wall = townWall or prisonWall or castleWall
-Target = lockTarget or crateTarget or falseTarget
-Crate = normalCrate or lockObject or falseCrate
+Target = lockTarget or crateTarget or falseTarget or falseTargetCastle
+Crate = normalCrate or lockObject or falseCrate or falseCrateCastle
 Villager = villager1 or villager2 or villager3
 
 0 = Black
@@ -201,13 +224,18 @@ A = guardArea
 J = villager1
 B = villager2
 N = villager3
+M = Princess
+E = falseCrateCastle
+H = falseTargetCastle
 
 
 =======
 SOUNDS
 =======
 
+StartGame 85650
 Crate move 36772507
+EndGame 123413
 
 ================
 COLLISIONLAYERS
@@ -215,7 +243,7 @@ COLLISIONLAYERS
 
 Background
 Black, White, Grey
-Target, Guard, guardArea, Villager
+Target, Guard, guardArea, Villager, Princess
 Player, Wall, Crate
 
 ======
@@ -263,21 +291,21 @@ message You see someone who looks like a town's guard...
 message The guard arrests you because of trespassing. He knocks you out... Then, you wake up and find yourself in a prison cell.
 message You try to crack the cell's lock... 
 ///////
-/osr11/
-/l0lo1/
-/00021/
-/00srq/
-/0sr11/
+/000lo/
+/s000s/
+/rs0lr/
+/1r2o1/
+/11q11/
 ///////
 
 message You're trying to escape from prison...
 message Move crate into target to exit each room.
 ///////
-/oo+++/
+/@@+++/
 ////++/
 //+**//
 //+*++/
-/o++p+/
+/@++p+/
 ///////
 
 message Now try to do it while avoiding the guard...
@@ -293,9 +321,9 @@ message Congrats, you have escape from prison
 message Now, let's talk to the villagers
 #######
 #j#b#n#
-#....t#
-#....f#
-#.....#
+#.#.#t#
+#.#.#f#
+#.#.#.#
 #p....#
 #######
 
@@ -304,14 +332,14 @@ message "Ok, this is risky. Just broke out of prison and now I’m breaking in t
 message "But there's no other choice anyway, so let's do it!"
 message Move crates into targets to progress through the castle
 \\\\\\\
-\-\\ag\
-\-\\aa\
-\-\gap\
-\--a--\
-\@-*--\
+\@--\p\
+\-*-\-\
+\---\-\
+\aa---\
+\ga---\
 \\\\\\\
 
-message One more to go!
+message One more to go! (Need to make it more difficult)
 \\\\\\\
 \@-aga\
 \---a-\
@@ -322,9 +350,20 @@ message One more to go!
 
 message You try to crack the princess' room door lock... 
 \\\\\\\
-\00or1\
-\0ls11\
-\0\\21\
-\00oLU\
-\oL000\
+\s00lo\
+\l000s\
+\0l0lr\
+\0s2s1\
+\\11q1\
 \\\\\\\
+
+message You arrive at the throne room..
+\\\\\\\
+\\-m-\\
+\\-h-\\
+\\---\\
+\\-e-\\
+\\-p-\\
+\\\\\\\
+message It should've been a long day for you. But no worries, I'll send you home.
+message The princess opens a portal and you walk into it.
