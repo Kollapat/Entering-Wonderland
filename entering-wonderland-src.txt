@@ -320,11 +320,11 @@ message Now try to do it while avoiding the guard...
 message Congrats, you have escape from prison
 message Now, let's talk to the villagers
 #######
-#j#b#n#
-#.#.#t#
-#.#.#f#
-#.#.#.#
-#p....#
+#...#n#
+#j..#t#
+#...#f#
+#.....#
+#p..b.#
 #######
 
 message "I think the princess could open a portal to send you home", said the villager.
