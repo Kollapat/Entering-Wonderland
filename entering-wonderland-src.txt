@@ -339,7 +339,7 @@ message Move crates into targets to progress through the castle
 \ga---\
 \\\\\\\
 
-message One more to go! (Need to make it more difficult)
+message One more to go! 
 \\\\\\\
 \@-aga\
 \---a-\
